@@ -24,11 +24,14 @@ Palta_Simple/
 │   ├── visualize_funnel.py            # Funnel visualization
 │   ├── visualize_funnel_EN.py         # Funnel visualization (EN)
 │   ├── enhanced_analysis.py           # Enhanced analysis with CI and data quality
-│   └── segmentation_analysis.py       # User segmentation analysis
+│   ├── segmentation_analysis.py       # User segmentation analysis
+│   └── correct_funnel_analysis.py     # Correct funnel analysis (event sequence)
 │
 ├── reports/
-│   ├── onboarding_funnel_analysis.md
-│   └── onboarding_funnel_analysis_EN.md
+│   ├── Simple App test assignment_RU.docx
+│   ├── Simple App test assignment_EN.docx
+│   ├── Simple App test assignment_RU.pdf
+│   └── Simple App test assignment_EN.pdf
 │
 ├── figures/
 │   ├── funnel_analysis.png             # Funnel analysis
@@ -41,7 +44,8 @@ Palta_Simple/
 │   ├── experiment_lift_EN.png          # Experiments lift (EN)
 │   ├── enhanced_experiment_analysis.png # Enhanced analysis with CI
 │   ├── weekly_conversion_trend.png     # Weekly conversion trend
-│   └── segmentation_analysis.png       # Segmentation analysis
+│   ├── segmentation_analysis.png       # Segmentation analysis
+│   └── correct_funnel_analysis.png     # Correct funnel analysis
 │
 ├── README.md
 ├── README_EN.md
@@ -161,6 +165,9 @@ python scripts/enhanced_analysis.py
 
 # User segmentation analysis
 python scripts/segmentation_analysis.py
+
+# Correct funnel analysis (event sequence)
+python scripts/correct_funnel_analysis.py
 ```
 
 ### Requirements:
@@ -189,6 +196,7 @@ python scripts/segmentation_analysis.py
 - **exp_9**: positive effect +9.1%, but not significant (p = 0.56)
 - **Data Quality**: 0% duplicates, clean data
 - **Temporal Stability**: conversion stable across weeks
+- **Correct Funnel**: event sequence analysis instead of maximum stage
 
 ## Additional Insights
 

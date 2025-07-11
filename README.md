@@ -24,11 +24,14 @@ Palta_Simple/
 │   ├── visualize_funnel.py            # Визуализация воронки
 │   ├── visualize_funnel_EN.py         # Визуализация воронки (EN)
 │   ├── enhanced_analysis.py           # Улучшенный анализ с CI и качеством данных
-│   └── segmentation_analysis.py       # Анализ сегментации пользователей
+│   ├── segmentation_analysis.py       # Анализ сегментации пользователей
+│   └── correct_funnel_analysis.py     # Правильный анализ воронки (последовательность событий)
 │
 ├── reports/
-│   ├── onboarding_funnel_analysis.md
-│   └── onboarding_funnel_analysis_EN.md
+│   ├── Simple App test assignment_RU.docx
+│   ├── Simple App test assignment_EN.docx
+│   ├── Simple App test assignment_RU.pdf
+│   └── Simple App test assignment_EN.pdf
 │
 ├── figures/
 │   ├── funnel_analysis.png             # Анализ воронки
@@ -41,7 +44,7 @@ Palta_Simple/
 │   ├── experiment_lift_EN.png          # Lift по экспериментам (EN)
 │   ├── enhanced_experiment_analysis.png # Улучшенный анализ с CI
 │   ├── weekly_conversion_trend.png     # Динамика конверсии по неделям
-│   └── segmentation_analysis.png       # Анализ сегментации
+│   ├── segmentation_analysis.png       # Анализ сегментации
 │
 ├── README.md
 ├── README_EN.md
@@ -161,6 +164,9 @@ python scripts/enhanced_analysis.py
 
 # Анализ сегментации пользователей
 python scripts/segmentation_analysis.py
+
+# Правильный анализ воронки (последовательность событий)
+python scripts/correct_funnel_analysis.py
 ```
 
 ### Требования:
@@ -189,6 +195,7 @@ python scripts/segmentation_analysis.py
 - **exp_9**: положительный эффект +9.1%, но незначимый (p = 0.56)
 - **Качество данных**: 0% дубликатов, чистые данные
 - **Временная стабильность**: конверсия стабильна по неделям
+- **Правильная воронка**: учет последовательности событий вместо максимальной стадии
 
 ## Дополнительные инсайты
 
