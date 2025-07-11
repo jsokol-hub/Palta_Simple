@@ -17,25 +17,31 @@ Palta_Simple/
 │   └── simple_interview_events.csv
 │
 ├── scripts/
-│   ├── analyze_onboarding.py
-│   ├── analyze_funnel_types.py
-│   ├── analyze_experiments.py
-│   ├── visualize_funnel.py
-│   └── visualize_funnel_EN.py
+│   ├── analyze_onboarding.py          # Базовый анализ онбординга
+│   ├── analyze_funnel_types.py        # Анализ типов воронок
+│   ├── analyze_experiments.py         # Анализ экспериментов
+│   ├── analyze_experiments_EN.py      # Анализ экспериментов (EN)
+│   ├── visualize_funnel.py            # Визуализация воронки
+│   ├── visualize_funnel_EN.py         # Визуализация воронки (EN)
+│   ├── enhanced_analysis.py           # Улучшенный анализ с CI и качеством данных
+│   └── segmentation_analysis.py       # Анализ сегментации пользователей
 │
 ├── reports/
 │   ├── onboarding_funnel_analysis.md
 │   └── onboarding_funnel_analysis_EN.md
 │
 ├── figures/
-│   ├── funnel_analysis.png
-│   ├── funnel_analysis_EN.png
-│   ├── funnel_comparison.png
-│   ├── funnel_comparison_EN.png
-│   ├── experiment_analysis.png
-│   ├── experiment_analysis_EN.png
-│   ├── experiment_lift.png
-│   ├── experiment_lift_EN.png
+│   ├── funnel_analysis.png             # Анализ воронки
+│   ├── funnel_analysis_EN.png          # Анализ воронки (EN)
+│   ├── funnel_comparison.png           # Сравнение воронок
+│   ├── funnel_comparison_EN.png        # Сравнение воронок (EN)
+│   ├── experiment_analysis.png         # Анализ экспериментов
+│   ├── experiment_analysis_EN.png      # Анализ экспериментов (EN)
+│   ├── experiment_lift.png             # Lift по экспериментам
+│   ├── experiment_lift_EN.png          # Lift по экспериментам (EN)
+│   ├── enhanced_experiment_analysis.png # Улучшенный анализ с CI
+│   ├── weekly_conversion_trend.png     # Динамика конверсии по неделям
+│   └── segmentation_analysis.png       # Анализ сегментации
 │
 ├── README.md
 ├── README_EN.md
@@ -139,16 +145,22 @@ Palta_Simple/
 ### Запуск анализа:
 ```bash
 # Основной анализ онбординга
-python analyze_onboarding.py
+python scripts/analyze_onboarding.py
 
 # Анализ экспериментов
-python analyze_experiments.py
+python scripts/analyze_experiments.py
 
 # Анализ типов воронок
-python analyze_funnel_types.py
+python scripts/analyze_funnel_types.py
 
 # Создание визуализаций
-python visualize_funnel.py
+python scripts/visualize_funnel.py
+
+# Улучшенный анализ с доверительными интервалами
+python scripts/enhanced_analysis.py
+
+# Анализ сегментации пользователей
+python scripts/segmentation_analysis.py
 ```
 
 ### Требования:
@@ -160,6 +172,23 @@ python visualize_funnel.py
 - **event_type**: тип события (onboarding_start, profile_start, etc.)
 - **event_time**: время события
 - **event_params**: JSON с дополнительными параметрами
+
+## Улучшения анализа
+
+### Новые возможности:
+- **Доверительные интервалы**: 95% CI для всех A/B тестов
+- **Анализ качества данных**: проверка дубликатов, подозрительных пользователей
+- **Временной анализ**: динамика конверсии по неделям
+- **Оценка мощности тестов**: статистическая значимость и размер эффекта
+- **Сегментация**: анализ по платформам, устройствам, странам
+- **Улучшенная метрика**: конверсия по каждому этапу, а не только максимальному
+
+### Ключевые улучшения:
+- **exp_2**: статистически значимый lift +49.8% (p < 0.001)
+- **exp_6**: положительный эффект +15.5%, но незначимый (p = 0.39)
+- **exp_9**: положительный эффект +9.1%, но незначимый (p = 0.56)
+- **Качество данных**: 0% дубликатов, чистые данные
+- **Временная стабильность**: конверсия стабильна по неделям
 
 ## Дополнительные инсайты
 

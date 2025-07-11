@@ -17,26 +17,31 @@ Palta_Simple/
 │   └── simple_interview_events.csv
 │
 ├── scripts/
-│   ├── analyze_onboarding.py
-│   ├── analyze_funnel_types.py
-│   ├── analyze_experiments.py
-│   ├── visualize_funnel.py
-│   └── visualize_funnel_EN.py
+│   ├── analyze_onboarding.py          # Basic onboarding analysis
+│   ├── analyze_funnel_types.py        # Funnel types analysis
+│   ├── analyze_experiments.py         # Experiments analysis
+│   ├── analyze_experiments_EN.py      # Experiments analysis (EN)
+│   ├── visualize_funnel.py            # Funnel visualization
+│   ├── visualize_funnel_EN.py         # Funnel visualization (EN)
+│   ├── enhanced_analysis.py           # Enhanced analysis with CI and data quality
+│   └── segmentation_analysis.py       # User segmentation analysis
 │
 ├── reports/
 │   ├── onboarding_funnel_analysis.md
 │   └── onboarding_funnel_analysis_EN.md
 │
 ├── figures/
-│   ├── funnel_analysis.png
-│   ├── funnel_analysis_EN.png
-│   ├── funnel_comparison.png
-│   ├── funnel_comparison_EN.png
-│   ├── experiment_analysis.png
-│   ├── experiment_analysis_EN.png
-│   ├── experiment_lift.png
-│   ├── experiment_lift_EN.png
-│   └── (other figures)
+│   ├── funnel_analysis.png             # Funnel analysis
+│   ├── funnel_analysis_EN.png          # Funnel analysis (EN)
+│   ├── funnel_comparison.png           # Funnel comparison
+│   ├── funnel_comparison_EN.png        # Funnel comparison (EN)
+│   ├── experiment_analysis.png         # Experiments analysis
+│   ├── experiment_analysis_EN.png      # Experiments analysis (EN)
+│   ├── experiment_lift.png             # Experiments lift
+│   ├── experiment_lift_EN.png          # Experiments lift (EN)
+│   ├── enhanced_experiment_analysis.png # Enhanced analysis with CI
+│   ├── weekly_conversion_trend.png     # Weekly conversion trend
+│   └── segmentation_analysis.png       # Segmentation analysis
 │
 ├── README.md
 ├── README_EN.md
@@ -140,16 +145,22 @@ Palta_Simple/
 ### Running Analysis:
 ```bash
 # Main onboarding analysis
-python analyze_onboarding.py
+python scripts/analyze_onboarding.py
 
 # Experiment analysis
-python analyze_experiments.py
+python scripts/analyze_experiments.py
 
 # Funnel types analysis
-python analyze_funnel_types.py
+python scripts/analyze_funnel_types.py
 
 # Create visualizations
-python visualize_funnel.py
+python scripts/visualize_funnel.py
+
+# Enhanced analysis with confidence intervals
+python scripts/enhanced_analysis.py
+
+# User segmentation analysis
+python scripts/segmentation_analysis.py
 ```
 
 ### Requirements:
@@ -161,6 +172,23 @@ python visualize_funnel.py
 - **event_type**: event type (onboarding_start, profile_start, etc.)
 - **event_time**: event timestamp
 - **event_params**: JSON with additional parameters
+
+## Analysis Improvements
+
+### New Capabilities:
+- **Confidence Intervals**: 95% CI for all A/B tests
+- **Data Quality Analysis**: duplicate detection, suspicious user identification
+- **Temporal Analysis**: conversion trends by weeks
+- **Statistical Power**: significance testing and effect size estimation
+- **Segmentation**: analysis by platforms, devices, countries
+- **Enhanced Metrics**: conversion at each stage, not just maximum reached
+
+### Key Improvements:
+- **exp_2**: statistically significant lift +49.8% (p < 0.001)
+- **exp_6**: positive effect +15.5%, but not significant (p = 0.39)
+- **exp_9**: positive effect +9.1%, but not significant (p = 0.56)
+- **Data Quality**: 0% duplicates, clean data
+- **Temporal Stability**: conversion stable across weeks
 
 ## Additional Insights
 
