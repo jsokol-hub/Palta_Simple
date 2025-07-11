@@ -11,7 +11,7 @@ sns.set_style("whitegrid")
 def load_data():
     """Загружает данные"""
     print("Загрузка данных...")
-    df = pd.read_csv('simple_interview_events.csv')
+    df = pd.read_csv('data/simple_interview_events.csv')
     df['event_time'] = pd.to_datetime(df['event_time'])
     return df
 

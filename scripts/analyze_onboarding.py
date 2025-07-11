@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore')
 
 # Загружаем данные
 print("Загружаем данные...")
-df = pd.read_csv('simple_interview_events.csv')
+df = pd.read_csv('data/simple_interview_events.csv')
 
 print(f"Общее количество записей: {len(df):,}")
 print(f"Уникальных пользователей: {df['user_id'].nunique():,}")
