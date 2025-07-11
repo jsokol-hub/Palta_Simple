@@ -14,7 +14,7 @@ sns.set_palette("husl")
 
 # Load data
 print("Loading data for visualization...")
-df = pd.read_csv('simple_interview_events.csv')
+df = pd.read_csv('data/simple_interview_events.csv')
 
 # Funnel analysis
 onboarding_events = ['onboarding_start', 'profile_start', 'email_submit', 'paywall_show', 'payment_done']
@@ -57,6 +57,58 @@ def analyze_funnel(df):
     return funnel_conversion, user_events
 
 funnel_results, user_events = analyze_funnel(df)
+
+# --- Calculate experiment_results and sorted_experiments ---
+experiment_events = df[df['event_type'] == 'experiment_exposure'].copy()
+experiment_events['experiment_params'] = experiment_events['event_params'].apply(
+    lambda x: json.loads(x) if pd.notna(x) and x != '{}' else {}
+)
+experiment_events['experiment_name'] = experiment_events['experiment_params'].apply(
+    lambda x: x.get('experiment_name', 'unknown') if isinstance(x, dict) else 'unknown'
+)
+experiment_events['experiment_group'] = experiment_events['experiment_params'].apply(
+    lambda x: x.get('experiment_group', 'unknown') if isinstance(x, dict) else 'unknown'
+)
+
+experiment_results = {}
+for exp_name in experiment_events['experiment_name'].unique():
+    if exp_name == 'unknown':
+        continue
+    exp_data = experiment_events[experiment_events['experiment_name'] == exp_name]
+    groups = exp_data['experiment_group'].unique()
+    group_results = {}
+    for group in groups:
+        if group == 'unknown':
+            continue
+        group_users = set(exp_data[exp_data['experiment_group'] == group]['user_id'])
+        group_payments = df[(df['user_id'].isin(group_users)) & (df['event_type'] == 'payment_done')]['user_id'].nunique()
+        conversion_rate = group_payments / len(group_users) * 100 if len(group_users) > 0 else 0
+        group_results[group] = {
+            'users': len(group_users),
+            'payments': group_payments,
+            'conversion_rate': conversion_rate
+        }
+    experiment_results[exp_name] = group_results
+
+experiment_summary = {}
+for exp_name, groups in experiment_results.items():
+    total_users = sum(data['users'] for data in groups.values())
+    total_payments = sum(data['payments'] for data in groups.values())
+    overall_conversion = total_payments / total_users * 100 if total_users > 0 else 0
+    max_lift = 0
+    if 'control' in groups:
+        control_rate = groups['control']['conversion_rate']
+        for group, data in groups.items():
+            if group != 'control':
+                lift = ((data['conversion_rate'] - control_rate) / control_rate * 100) if control_rate > 0 else 0
+                max_lift = max(max_lift, lift)
+    experiment_summary[exp_name] = {
+        'total_users': total_users,
+        'total_payments': total_payments,
+        'overall_conversion': overall_conversion,
+        'max_lift': max_lift
+    }
+sorted_experiments = sorted(experiment_summary.items(), key=lambda x: (x[1]['max_lift'], x[1]['overall_conversion']), reverse=True)
 
 # Create visualizations
 fig, axes = plt.subplots(2, 2, figsize=(15, 12))

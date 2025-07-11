@@ -10,24 +10,44 @@
 
 ## Структура проекта
 
-### Аналитические скрипты:
-1. **`analyze_experiments.py`** - Анализ экспериментов и их эффективности
-2. **`analyze_funnel_types.py`** - Детальный анализ по типам воронок
-3. **`analyze_onboarding.py`** - Основной скрипт анализа данных онбординга
-4. **`visualize_funnel.py`** - Скрипт для создания визуализаций
+```
+Palta_Simple/
+│
+├── data/
+│   └── simple_interview_events.csv
+│
+├── scripts/
+│   ├── analyze_onboarding.py
+│   ├── analyze_funnel_types.py
+│   ├── analyze_experiments.py
+│   ├── visualize_funnel.py
+│   └── visualize_funnel_EN.py
+│
+├── reports/
+│   ├── onboarding_funnel_analysis.md
+│   └── onboarding_funnel_analysis_EN.md
+│
+├── figures/
+│   ├── funnel_analysis.png
+│   ├── funnel_analysis_EN.png
+│   ├── funnel_comparison.png
+│   ├── funnel_comparison_EN.png
+│   ├── experiment_analysis.png
+│   ├── experiment_analysis_EN.png
+│   ├── experiment_lift.png
+│   ├── experiment_lift_EN.png
+│   └── (другие графики)
+│
+├── README.md
+├── README_EN.md
+└── requirements.txt
+```
 
-### Визуализации:
-5. **`experiment_analysis.png`** - Анализ экспериментов
-6. **`experiment_lift.png`** - Lift-анализ экспериментов
-7. **`funnel_analysis.png`** - Основные графики анализа воронки
-8. **`funnel_comparison.png`** - Сравнение конверсии по типам воронок
-9. **`funnel_types_comparison_fixed.png`** - Детальное сравнение типов воронок
-
-### Отчеты:
-10. **`onboarding_funnel_analysis.md`** - Полный отчет по анализу онбординга
-
-### Данные:
-11. **`simple_interview_events.csv`** - Исходные данные (346,328 событий, 100,000 пользователей)
+- Все данные — в папке `data/`
+- Все Python-скрипты — в папке `scripts/`
+- Все отчёты (RU/EN) — в папке `reports/`
+- Все графики и визуализации — в папке `figures/`
+- Основная документация и зависимости — в корне проекта.
 
 ## Ответы на задания
 

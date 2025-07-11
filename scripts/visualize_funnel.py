@@ -14,7 +14,7 @@ sns.set_palette("husl")
 
 # Загружаем данные
 print("Загружаем данные для визуализации...")
-df = pd.read_csv('simple_interview_events.csv')
+df = pd.read_csv('data/simple_interview_events.csv')
 
 # Анализ воронки
 onboarding_events = ['onboarding_start', 'profile_start', 'email_submit', 'paywall_show', 'payment_done']

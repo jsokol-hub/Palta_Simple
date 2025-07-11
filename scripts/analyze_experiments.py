@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore')
 
 # Загружаем данные
 print("Загружаем данные для анализа экспериментов...")
-df = pd.read_csv('simple_interview_events.csv')
+df = pd.read_csv('data/simple_interview_events.csv')
 
 # Анализ экспериментов с контрольными группами
 print("\n=== ДЕТАЛЬНЫЙ АНАЛИЗ ЭКСПЕРИМЕНТОВ ===")

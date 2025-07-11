@@ -10,24 +10,44 @@
 
 ## Project Structure
 
-### Analytical Scripts:
-1. **`analyze_experiments.py`** - Analysis of experiments and their effectiveness
-2. **`analyze_funnel_types.py`** - Detailed analysis by funnel types
-3. **`analyze_onboarding.py`** - Main onboarding data analysis script
-4. **`visualize_funnel.py`** - Script for creating visualizations
+```
+Palta_Simple/
+│
+├── data/
+│   └── simple_interview_events.csv
+│
+├── scripts/
+│   ├── analyze_onboarding.py
+│   ├── analyze_funnel_types.py
+│   ├── analyze_experiments.py
+│   ├── visualize_funnel.py
+│   └── visualize_funnel_EN.py
+│
+├── reports/
+│   ├── onboarding_funnel_analysis.md
+│   └── onboarding_funnel_analysis_EN.md
+│
+├── figures/
+│   ├── funnel_analysis.png
+│   ├── funnel_analysis_EN.png
+│   ├── funnel_comparison.png
+│   ├── funnel_comparison_EN.png
+│   ├── experiment_analysis.png
+│   ├── experiment_analysis_EN.png
+│   ├── experiment_lift.png
+│   ├── experiment_lift_EN.png
+│   └── (other figures)
+│
+├── README.md
+├── README_EN.md
+└── requirements.txt
+```
 
-### Visualizations:
-5. **`experiment_analysis.png`** - Experiment analysis
-6. **`experiment_lift.png`** - Experiment lift analysis
-7. **`funnel_analysis.png`** - Main funnel analysis charts
-8. **`funnel_comparison.png`** - Funnel conversion comparison
-9. **`funnel_types_comparison_fixed.png`** - Detailed funnel types comparison
-
-### Reports:
-10. **`onboarding_funnel_analysis.md`** - Complete onboarding analysis report
-
-### Data:
-11. **`simple_interview_events.csv`** - Source data (346,328 events, 100,000 users)
+- All data files are in `data/`
+- All Python scripts are in `scripts/`
+- All reports (RU/EN) are in `reports/`
+- All figures and visualizations are in `figures/`
+- Main documentation and requirements are in the project root.
 
 ## Assignment Answers
 
