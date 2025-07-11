@@ -1,4 +1,4 @@
-# Product Analyst Test Assignment - Simple App/Palta
+# Data Analyst Test Assignment - Simple App/Palta
 
 ## Analysis Results
 

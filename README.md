@@ -1,4 +1,4 @@
-# Тестовое задание Product Analyst - Simple App/Palta
+# Тестовое задание Data Analyst - Simple App/Palta
 
 ## Результаты анализа
 
