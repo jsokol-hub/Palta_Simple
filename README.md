@@ -36,7 +36,6 @@ Palta_Simple/
 │   ├── experiment_analysis_EN.png
 │   ├── experiment_lift.png
 │   ├── experiment_lift_EN.png
-│   └── (другие графики)
 │
 ├── README.md
 ├── README_EN.md
